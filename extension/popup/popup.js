@@ -4,10 +4,16 @@ const btnprompt = document.getElementById("btn-prompt");
 const btnrender = document.getElementById("btn-render");
 
 async function getCurrentTab() {
-  let queryOptions = { active: true, lastFocusedWindow: true };
-  let [tab] = await chrome.tabs.query(queryOptions);
-  return tab;
-}
+    try {
+      let queryOptions = { active: true, lastFocusedWindow: true };
+      let [tab] = await chrome.tabs.query(queryOptions);
+      if (!tab) throw new Error("No active tab found.");
+      return tab;
+    } catch (error) {
+      console.error("Error getting current tab:", error);
+    }
+  }
+  
 
 btnprompt.addEventListener("click", async () => {
   let currentTab = await getCurrentTab();
@@ -22,7 +28,6 @@ btnprompt.addEventListener("click", async () => {
       console.log(response);
     }
   );
-  console.log("btnprompt clicked!");
 });
 
 btnrender.addEventListener("click", () => {
