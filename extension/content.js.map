@@ -1,1 +1,24 @@
-{"version":3,"file":"content.js","mappings":";;;;;AAAAA,OAAO,CAACC,GAAG,CAAC,cAAc,CAAC,C","sources":["webpack://empty-project/./src/index.js"],"sourcesContent":["console.log(\"hello world!\");"],"names":["console","log"],"sourceRoot":""}
+{
+  "version": 3,
+  "file": "content.js",
+  "mappings": "AAAAA,OAAOC,QAAQC,UAAUC,aAAY,SAACC,EAASC,EAAQC,GACrDC,QAAQC,IAAI,4BAA6BJ,GACzCE,EAAa,CAAEG,OAAQ,sCACzB",
+  "sources": [
+    "webpack://empty-project/./src/index.js"
+  ],
+  "sourcesContent": [
+    "chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {\r\n  console.log(\"*************************\", request);\r\n  sendResponse({ status: \"message received in content script\" });\r\n});\r\n"
+  ],
+  "names": [
+    "chrome",
+    "runtime",
+    "onMessage",
+    "addListener",
+    "request",
+    "sender",
+    "sendResponse",
+    "console",
+    "log",
+    "status"
+  ],
+  "sourceRoot": ""
+}

@@ -1,9 +1,5 @@
-/******/ (() => { // webpackBootstrap
-var __webpack_exports__ = {};
-/*!**********************!*\
-  !*** ./src/index.js ***!
-  \**********************/
-console.log("hello world!");
-/******/ })()
-;
+chrome.runtime.onMessage.addListener(function (e, n, s) {
+  console.log("*************************", e),
+    s({ status: "message received in content script" });
+});
 //# sourceMappingURL=content.js.map
